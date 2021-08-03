@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from "react"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addFriend } from "../../common/friend/state";
 import { getNextFriend } from "../../common/mockData";
 import store from "../../common/store"
@@ -7,9 +7,10 @@ import FriendList from "../component/FriendList";
 
 export default function FriendMain() {
   const friends = useSelector(state => state.friend.friends)
+  const dispatch = useDispatch()
   function onAdd() {
     const friend = getNextFriend()
-    store.dispatch(addFriend(friend))
+    dispatch(addFriend(friend))
   }
   console.log('FriendMain render')
   console.log(store.getState(),"friends")
