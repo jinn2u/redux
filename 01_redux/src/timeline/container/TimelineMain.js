@@ -9,7 +9,14 @@ export default function TimelineMain() {
   const [, forceUpdate] = useReducer(v => v + 1, 0)
   useEffect(() => {
     // ?액션 처리가 끝나면 항상 컴포넌트가 렌더링 된다.
-    const unsubscribe = store.subscribe(() => forceUpdate())
+    let prevTimeline = store.getState().timeline.timelines
+    const unsubscribe = store.subscribe(() => {
+      const timeline = store.getState().timeline.timelines
+      if(prevTimeline !== timeline) {
+        forceUpdate()
+        prevTimeline = timeline
+      }
+    })
     return () => unsubscribe()
   }, [])
   function onAdd() {
