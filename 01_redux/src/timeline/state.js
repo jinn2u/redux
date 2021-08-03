@@ -1,4 +1,4 @@
-import createReducer from "../createReducer"
+import createReducer from "../common/createReducer"
 
 const ADD = 'timeline/ADD'
 const REMOVE = 'timeline/REMOVE'

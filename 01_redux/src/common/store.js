@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from "redux";
-import timelineReducer from "./timeline/state"
-import friendReducer from "./friend/state"
+import timelineReducer from "../timeline/state"
+import friendReducer from "../friend/state/index"
 
 const reducer = combineReducers({
   timeline: timelineReducer,

@@ -1,6 +1,6 @@
-import createReducer from "../createReducer"
-import { MAX_AGE_LIMIT } from "../../friend/common"
-import { MAX_SHOW_LIMIT } from "../../friend/common"
+import createReducer from "../../common/createReducer"
+import { MAX_AGE_LIMIT } from "../common"
+import { MAX_SHOW_LIMIT } from "../common"
 
 const ADD = 'friend/ADD'
 const REMOVE = 'friend/REMOVE'
