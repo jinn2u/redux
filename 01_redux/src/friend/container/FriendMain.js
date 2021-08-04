@@ -5,9 +5,9 @@ import FriendList from "../component/FriendList";
 import { MAX_AGE_LIMIT, MAX_SHOW_LIMIT } from "../common"
 import NumberSelect from "../component/NumberSelect"
 import { getAgeLimit, getFreindsWithAgeShowLimit, getFriendsWithAgeLimit, getShowLimit } from "../state/selector";
-import { addFriend, setAgeLimit, setShowLimit } from "../state";
+import { actions } from "../state";
 
-
+ 
 
 export default function FriendMain() {
   const [ageLimit, showLimit, friendsWithAgeLimit, friendsWithAgeShowLimit] = useSelector(state => [
@@ -19,7 +19,7 @@ export default function FriendMain() {
   const dispatch = useDispatch()
   function onAdd() {
     const friend = getNextFriend()
-    dispatch(addFriend(friend))
+    dispatch(actions.addFriend(friend))
   }
   console.log('FriendMain render')
   console.log(store.getState(), "friends")
@@ -27,14 +27,14 @@ export default function FriendMain() {
     <div>
       <button onClick={onAdd}>친구 추가</button>
       <NumberSelect
-        onChange={v => dispatch(setAgeLimit(v))}
+        onChange={v => dispatch(actions.setValue('ageLimit', v))}
         value={ageLimit}
         options={AGE_LIMIT_OPTIONS}
         postfix="세 이하만 보기"
       />
       <FriendList friends={friendsWithAgeLimit} />
       <NumberSelect
-        onChange={v => dispatch(setShowLimit(v))}
+        onChange={v => dispatch(actions.setValue('showLimit', v))}
         value={showLimit}
         options={SHOW_LIMIT_OPTIONS}
         postfix="명 이하만 보기(연령 제한 적용)"
