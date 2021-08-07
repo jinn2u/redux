@@ -22,7 +22,6 @@ export default function FriendMain() {
     dispatch(actions.addFriend(friend))
   }
   console.log('FriendMain render')
-  console.log(store.getState(), "friends")
   return (
     <div>
       <button onClick={onAdd}>친구 추가</button>

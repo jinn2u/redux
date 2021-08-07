@@ -51,6 +51,6 @@ const reducer = createReducer(INITIAL_STATE, {
       timeline.likes += action.value
     }
   },
-  [types.SET_LOADING]: (state, action) => (state.isLoading = actions.isLoading)
+  [types.SET_LOADING]: (state, action) => (state.isLoading = action.isLoading)
 })
 export default reducer

@@ -7,7 +7,6 @@ export const getShowLimit = state => state.friend.showLimit
 export const getFriendsWithAgeLimit = createSelector(
   [getFriends, getAgeLimit],
   (friends, ageLimit) => {
-    console.log('getFriendsWithAgeLimit is called')
     return friends.filter(item => item.age <= ageLimit)
   }
 )
