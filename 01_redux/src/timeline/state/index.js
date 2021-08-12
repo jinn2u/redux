@@ -1,4 +1,4 @@
-import { createReducer, createSetValueAction, setValueReducer } from "../../common/redux-helper";
+import { createReducer, createValueAction, setValueReducer } from "../../common/redux-helper.js";
 
 export const types = {
   ADD: "timeline/ADD",
@@ -22,10 +22,10 @@ export const actions = {
     type: types.SET_LOADING,
     isLoading,
   }),
-  setValue: createSetValueAction(types.SET_VALUE),
+  setValue: createValueAction(types.SET_VALUE),
 };
 
-const INITIAL_STATE = { timelines: [], nextPage: 0, isLoading: false };
+const INITIAL_STATE = { timelines: [], nextPage: 0, isLoading: false, error: "" };
 
 const reducer = createReducer(INITIAL_STATE, {
   [types.ADD]: (state, action) => state.timelines.push(action.timeline),

@@ -39,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "- shallowEqual을 통하여 해결할 수 있다.",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }

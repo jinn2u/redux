@@ -12,6 +12,6 @@ export function callApiLike() {
       } else {
         reject("callApiLie 실패");
       }
-    });
+    }, 1000);
   });
 }

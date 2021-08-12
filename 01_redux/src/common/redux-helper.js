@@ -1,18 +1,18 @@
-import produce from 'immer'
+import produce from "immer";
 
 export function createReducer(initialState, handlerMap) {
   return function (state = initialState, action) {
-    return produce(state, draft => {
-      const handler = handlerMap[action.type]
+    return produce(state, (draft) => {
+      const handler = handlerMap[action.type];
       if (handler) {
-        handler(draft, action)
+        handler(draft, action);
       }
-    })
-  }
+    });
+  };
 }
 export function createValueAction(type) {
-  return (key, value) => ({ type, key, value })
+  return (key, value) => ({ type, key, value });
 }
 export function setValueReducer(state, action) {
-  state[action.key] = action.value
+  state[action.key] = action.value;
 }
